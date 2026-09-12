@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Call bash script 1
         env:
           VAR_UNO: ${{ vars.VAR_UNO }}
@@ -27,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -44,3 +42,19 @@ jobs:
 
       - name: Node action result
         run: echo "${{ steps.test-node-action.outputs.result }}"
+
+  test-docker-action:
+    name: Test docker action
+    needs: test-dummy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test docker action
+        id: test-docker-action
+        uses: ./add-docker-action
+        with:
+          argument-a: "12"
+          argument-b: "13"
