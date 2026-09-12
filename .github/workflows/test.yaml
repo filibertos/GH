@@ -13,8 +13,8 @@ jobs:
 
       - name: Call bash script
         env:
-          VAR_UNO: ${{ variables.VAR_UNO }}
-          VAR_DUE: ${{ variables.VAR_DUE }}
+          VAR_UNO: ${{ vars.VAR_UNO }}
+          VAR_DUE: ${{ vars.VAR_DUE }}
         run: |
           echo "* $VAR_UNO"
           echo "* $VAR_DUE"
