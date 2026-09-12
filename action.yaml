@@ -1,6 +1,6 @@
 name: "Composite action"
 description: "Composite action"
-
+    
 inputs:
   argument-a:
     description: "argument-a"
@@ -12,7 +12,9 @@ inputs:
 runs:
   using: composite
   steps:
-  - uses: ./add-node-action
+
+  - name: call add node action
+    uses: ./add-node-action
     with:
       argument-a: ${{ inputs.argument-a }}
       argument-b: ${{ inputs.argument-b }}
