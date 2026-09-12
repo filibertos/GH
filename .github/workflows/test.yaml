@@ -23,6 +23,7 @@ jobs:
 
   test-node-action:
     name: Test node action
+    needs: test-dummy
     runs-on: ubuntu-latest
 
     steps:
