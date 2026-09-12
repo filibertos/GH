@@ -1,0 +1,14 @@
+name: "Docker action"
+description: "Docker action"
+
+inputs:
+  argument-a:
+    description: "argument-a"
+    required: true
+  argument-b:
+    description: "argument-b"
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
