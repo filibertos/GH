@@ -23,7 +23,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version-file: node20
+          node-version-file: v20.15.1
           cache-dependency-path: add-node-action
           cache: npm
 
