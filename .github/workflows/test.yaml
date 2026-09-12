@@ -11,13 +11,15 @@ jobs:
 
     steps:
 
-      - name: Call bash script
+      - name: Call bash script 1
         env:
           VAR_UNO: ${{ vars.VAR_UNO }}
+        run: echo "* $VAR_UNO"
+
+      - name: Call bash script 2
+        env:
           VAR_DUE: ${{ vars.VAR_DUE }}
-        run: |
-          echo "* $VAR_UNO"
-          echo "* $VAR_DUE"
+        run: echo "* $VAR_DUE"          
 
       - name: Checkout
         uses: actions/checkout@v4
