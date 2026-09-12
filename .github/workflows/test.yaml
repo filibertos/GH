@@ -1,0 +1,42 @@
+name: Test workflow
+
+on:
+  workflow_dispatch:
+    #inputs:
+     # logLevel:
+      #  description: 'Log level'     
+       # required: true
+        #default: 'warning'
+      #tags:
+       # description: 'Test scenario tags'
+
+jobs:
+
+  test-node-action:
+    name: Test node action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: node20
+          cache-dependency-path: add-node-action
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: add-node-action
+
+      - name: Test node action
+        id: test-node-action
+        uses: ./add-node-action
+        with:
+          argument-a: "12"
+          argument-b: "13"
+
+      - name: Node action result
+        run: echo "${{ steps.test-node-action.outputs.result }}"
