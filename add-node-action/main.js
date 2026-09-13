@@ -1,3 +1,4 @@
+
 const core = require("@actions/core");
 const github = require("@actions/github");
 
@@ -9,7 +10,7 @@ function run() {
     const argumentB = core.getInput("argument-b");
 
     var result = Number(argumentA) + Number(argumentB);
-    
+
     core.setOutput("result", result);
   } catch (error) {
     core.setFailed(error.message);

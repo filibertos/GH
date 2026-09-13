@@ -2,11 +2,11 @@ name: "Node action x"
 description: "Node action x"
 
 inputs:
-  github-username:
-    description: "github-username"
-    required: true
   github-token:
     description: "github-token"
+    required: true
+  github-username:
+    description: "github-username"
     required: true
 
 outputs:
