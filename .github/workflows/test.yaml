@@ -20,6 +20,15 @@ jobs:
           VAR_DUE: ${{ vars.VAR_DUE }}
         run: echo "* $VAR_DUE"
 
+      - name: Workflow commans
+        run: |
+          echo "::group::filiberto"
+          echo "ok, talking about him"
+          echo "::endgroup::"
+          echo "::group::tanja"
+          echo "ok, talking about her"
+          echo "::endgroup::"
+
   test-node-action:
     name: Test node action
     needs: test-dummy
