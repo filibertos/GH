@@ -31,7 +31,6 @@ jobs:
 
   test-node-action:
     name: Test node action
-    needs: test-dummy
     runs-on: ubuntu-latest
 
     steps:
@@ -54,7 +53,6 @@ jobs:
 
   test-docker-action:
     name: Test docker action
-    needs: test-dummy
     runs-on: ubuntu-latest
 
     steps:
@@ -67,3 +65,21 @@ jobs:
         with:
           argument-a: "12"
           argument-b: "13"
+
+  test-nodex-action:
+    name: Test nodex action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test nodex action
+        id: test-nodex-action
+        uses: ./get-node-github-data-action
+        with:
+          github-username: "filibertos"
+          github-token: "$GITHUB_TOKEN"
+
+      - name: Nodex action result
+        run: echo "${{ steps.testx-node-action.outputs.email }}"
