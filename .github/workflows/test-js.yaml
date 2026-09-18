@@ -17,7 +17,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-        working-directory: get-node-hithub-data-action
+        working-directory: get-node-github-data-action
 
       - name: Test nodex action
         id: test-nodex-action
